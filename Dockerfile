@@ -1,8 +1,11 @@
 # Use a base image of Ubuntu 20.04
 FROM  ubuntu:20.04
 
+# At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
+ENV LANG C.UTF-8
+
 # Label the image with the version
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 # Update the package list and install dependencies
 RUN apt-get update -y \
